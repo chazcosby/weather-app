@@ -1,3 +1,9 @@
+.App {
+ background: rgb(89,228,255);
+background: linear-gradient(0deg, rgba(89,228,255,1) 0%, rgba(0,107,129,1) 100%);
+}
+
+
 .weatherContainer {
     align-items: center;
     justify-content: center;
@@ -9,16 +15,17 @@ font-size: 1rem;
     font-weight: 500;
     color: #fff;
     padding-top: 5vmin;
-    padding-bottom: 5vmin;
+    padding-bottom: 20vmin;
 
 }
+
 
 .containerBG {
 background-color: rgba(0, 0, 0, 0.5);
 border-radius: 20px;
 margin-top: 1vh;
-margin-left: 1vh;
-margin-right: 1vh;
+margin-left: 1px;
+margin-right: 1px;
 padding: 30px 10px 10px 10px;
 
 }
@@ -66,12 +73,18 @@ padding: 30px 10px 10px 10px;
 }
 .minMaxTemp {
     margin-bottom: 5vmin;
+    
+    white-space: nowrap
 }
 .currentWeatherIcon {
  display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: top;
 }
+    
+
+
 
 .dayAndTime {
     font-size: 2.5rem;
@@ -113,6 +126,20 @@ font-size: 30px;
     padding: 10px;
     color:#d4f1f9;
 }
+
+
+.fa-spinner {
+-webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    margin-top: 50vh;
+    font-size: 25vh;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 .rise {
     animation: rise 5s 1 forwards;
 }
@@ -122,7 +149,49 @@ font-size: 30px;
   100% { transform: translateY(-20px);}
 }
 
+.fiveDay p {
+    font-size: 10px;
+    font-weight: bold;
+    color: #fff;
+    padding: 0px;
+}
+
+.fiveDay img {
+    width: 10vmin;
+    height: 10vmin;
+}
+
+.white-space {
+    white-space: nowrap;
+}
 
 
 
+.Footer {
+  background-color: #212529;
+  opacity: 1;
+  color: #fff;
+  margin: 0px;
+  padding: 5px 0 5px 0;
+}
 
+@media screen and (max-width: 825px) {
+    .currentWeatherIcon img {
+
+        width: 15vh;
+    height: 15vh;
+    }
+.weatherContainer {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    
+}}
+
+@media screen and (min-width:825px) {
+    .weatherContainer {
+height: 100%;
+        width: 50%;
+    }
+}

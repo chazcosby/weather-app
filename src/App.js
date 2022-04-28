@@ -1,6 +1,8 @@
 
 import React, { useEffect, useState } from "react";
 import Weather from "./components/weather";
+import Loading from "./components/loading";
+import Footer from "./components/footer";
 
 {/* https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={long}&appid=${process.env.REACT_APP_API_KEY} */}
 
@@ -23,19 +25,25 @@ export default function App() {
         .then((res) => res.json())
         .then((result) => {
           setData(result);
-          console.log(result);
-        });
+          console.log(result)
+        }).catch(err => console.log(err));
     };
     fetchData();
   }, [lat, long]);
 
+
+  
   return (
     <div className="App">
       {typeof data.current != "undefined" ? (
-        <Weather weatherData={data} />
-        
+        <>
+          <Weather weatherData={data} />
+          <Footer />
+        </>
       ) : (
-        <div></div>
+        <div>
+          <Loading />
+        </div>
       )}
     </div>
   );
