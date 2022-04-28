@@ -1,4 +1,8 @@
+.App {
+    background: rgb(89,228,255);
+background: linear-gradient(0deg, rgba(89,228,255,1) 0%, rgba(0,107,129,1) 100%);
 
+}
 
 
 .weatherContainer {
