@@ -1,0 +1,128 @@
+.weatherContainer {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+   background: rgb(89,228,255);
+background: linear-gradient(0deg, rgba(89,228,255,1) 0%, rgba(0,107,129,1) 100%);
+font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    padding-top: 5vmin;
+    padding-bottom: 5vmin;
+
+}
+
+.containerBG {
+background-color: rgba(0, 0, 0, 0.155);
+border-radius: 20px;
+margin-top: 1vh;
+margin-left: 1vh;
+margin-right: 1vh;
+padding: 30px 10px 10px 10px;
+
+}
+
+
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    padding-right: 15vh;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 15vh;
+}
+.currentTemp {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 10px #000;
+}
+
+.currentTempDesc {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 0 10px #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 2vmin;
+}
+.minMaxTemp {
+    margin-bottom: 5vmin;
+}
+.currentWeatherIcon {
+ display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dayAndTime {
+    font-size: 2.5rem;
+    margin-bottom: 5vh;
+}
+
+.default {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    
+}
+
+.fa-sun {
+    color: #F5B027;
+    font-size: 75px;
+    padding: 10px;
+}
+
+.fa-moon {
+    color: #F5F3CE;
+    font-size: 75px;
+    padding: 10px;
+}
+
+.fa-circle {color: #F5B027;
+    font-size: 30px;
+    padding: 10px;
+    text-shadow: 0 0 10px #fff;
+
+}
+
+.fa-wind{
+font-size: 30px;
+    padding: 10px;
+}
+.fa-droplet {
+    font-size: 30px;
+    padding: 10px;
+    color:#d4f1f9;
+}
+.rise {
+    animation: rise 5s 1 forwards;
+}
+@keyframes rise
+{
+  0% {transform: translateY(0);}
+  100% { transform: translateY(-20px);}
+}
+
+
+
+
+
