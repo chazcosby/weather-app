@@ -18,9 +18,8 @@ export default function App() {
       });
 
       await fetch(
-        `https://api.openweathermap.org/data/2.5/weather/?lat=${lat}&lon=${long}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`
-              )     
-
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=${process.env.REACT_APP_API_KEY}`
+      )
         .then((res) => res.json())
         .then((result) => {
           setData(result);
@@ -32,7 +31,7 @@ export default function App() {
 
   return (
     <div className="App">
-      {typeof data.main != "undefined" ? (
+      {typeof data.current != "undefined" ? (
         <Weather weatherData={data} />
         
       ) : (

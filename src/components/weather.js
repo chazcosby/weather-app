@@ -16,8 +16,7 @@ const Forecast = ({ weatherData }) => (
       <Col className="center dayAndTime">
         {/* Current Day and Time */}
         <p>
-          {moment.unix(weatherData.dt).format("ddd")} - {currTime}
-          
+          {moment.unix(weatherData.current.dt).format("ddd")} - {currTime}
         </p>
       </Col>
     </Row>
@@ -25,27 +24,33 @@ const Forecast = ({ weatherData }) => (
       <Col className="center">
         {/* Current Temp */}
         <p className="currentTemp">
-          {Math.round(weatherData.main.temp * 1.8 + 32)}&deg;
+          {Math.round((weatherData.current.temp - 273.15) * 1.8 + 32)}&deg;
         </p>
         {/* Current Weather Description */}
         <p className="currentTempDesc">
-          {weatherData.weather[0].description
+          {weatherData.current.weather[0].description
             .toLowerCase()
             .split(" ")
             .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
             .join(" ")}
+          
         </p>
         {/* Current Weather Min - Max Temp */}
         <p className="minMaxTemp">
-          {Math.round(weatherData.main.temp_min * 1.8 + 32)}&deg; /&nbsp;
-          {Math.round(weatherData.main.temp_max * 1.8 + 32)}&deg;&nbsp; Feels
-          Like {Math.round(weatherData.main.feels_like * 1.8 + 32)}&deg;
+          {Math.round((weatherData.daily[0].temp.min - 273.15) * 1.8 + 32)}&deg;
+          /&nbsp;
+          {Math.round((weatherData.daily[0].temp.max - 273.15) * 1.8 + 32)}
+          &deg;&nbsp; Feels Like{" "}
+          {Math.round(
+            (weatherData.daily[0].feels_like.day - 273.15) * 1.8 + 32
+          )}
+          &deg;
         </p>
       </Col>
       <Col className="currentWeatherIcon">
         {/* Current Weather Icon */}
         <img
-          src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
+          src={`https://openweathermap.org/img/wn/${weatherData.current.weather[0].icon}@2x.png`}
           alt="Card image"
         />
       </Col>
@@ -56,14 +61,20 @@ const Forecast = ({ weatherData }) => (
         <center>
           <i className="fa-solid fa-sun rise"></i>
           <p>Sunrise</p>
-          {moment.unix(weatherData.sys.sunrise).format("h:mm a").toUpperCase()}
+          {moment
+            .unix(weatherData.current.sunrise)
+            .format("h:mm a")
+            .toUpperCase()}
         </center>
       </Col>
       <Col className="center">
         <center>
           <i className="fa-solid fa-moon rise"></i>
           <p>Sunset</p>
-          {moment.unix(weatherData.sys.sunset).format("h:mm a").toUpperCase()}
+          {moment
+            .unix(weatherData.current.sunset)
+            .format("h:mm a")
+            .toUpperCase()}
         </center>
       </Col>
     </Row>
@@ -73,21 +84,21 @@ const Forecast = ({ weatherData }) => (
           <i className="fa-solid fa-circle"></i>
         </p>
         <p>UV Index</p>
-        <p>{weatherData.clouds.all}</p>
+        <p>{weatherData.current.uvi}</p>
       </Col>
       <Col className="center">
         <p>
           <i className="fa-solid fa-wind"></i>
         </p>
         <p>Wind</p>
-        <p>{weatherData.wind.speed} mph</p>
+        <p>{weatherData.current.wind_speed} mph</p>
       </Col>
       <Col className="center">
         <p>
           <i className="fa-solid fa-droplet"></i>
         </p>
         <p>Humidity</p>
-        <p>{weatherData.main.humidity} &#37;</p>
+        <p>{weatherData.current.humidity} &#37;</p>
       </Col>
     </Row>
   </Container>
