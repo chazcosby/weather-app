@@ -5,8 +5,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../App.css";
 import Footer from "./footer";
 
-var d = new Date();
-var currTime =
+let d = new Date();
+let currTime =
 /* Below is date for future use */
   /* d.toLocaleDateString() + " - " + */
   d.toLocaleTimeString().slice(0, -6) + " " + d.toLocaleTimeString().slice(8);  
