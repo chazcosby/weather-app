@@ -13,3 +13,5 @@ Install npm dependencies with : ```npm install```
 
 ## Development Server
 Run ```npm start``` for a development server. Navigate to http://localhost:3000/. The app will automatically reload if you change any of the source files.
+
+![chazcosby github io_weather-app_](https://user-images.githubusercontent.com/93302320/166628695-bdbeda3b-c6ad-4673-8749-74ebc01ea547.png)
